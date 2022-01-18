@@ -32,8 +32,8 @@ class AppFixtures extends Fixture
             $manager->persist($category); 
 
             $program = new Program();
-
-            // create 60 users! Bam!
+            
+            // create users! Bam!
             for ($l =1; $l <= mt_rand(4,10); $l++) {
                 $user = new User();
 
@@ -62,7 +62,24 @@ class AppFixtures extends Fixture
                 $manager->persist($program);
             }
 
+            // Creation des show
+            for ($k = 1 ; $k <= mt_rand(4,10) ; $k++) {
+               $show = new Show(); 
 
+               $content = '<p>' . join('</p><p>', $faker->paragraphs(2)) . '</p>';
+               $date = new \DateTime($faker->date('Y-m-d H:i:s'));
+
+               $show->setProgram($program);
+               $show->setName('show '.$k);
+               $show->setDescription($content);
+               $show->setStartAt($date);
+               $show->setEndAt($date);
+               $show->setCreatedAt($date);
+               $show->setHostedBy($faker->name());
+               $show->setGuest($faker->name());
+
+               $manager->persist($show); 
+            }
         }
         $manager->flush();
     }

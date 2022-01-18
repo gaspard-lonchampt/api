@@ -7,6 +7,7 @@ use App\Repository\ShowRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ShowRepository::class)]
+#[ORM\Table(name: '`showtimebb`')]
 #[ApiResource]
 class Show
 {
