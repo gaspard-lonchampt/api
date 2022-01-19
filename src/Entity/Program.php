@@ -110,7 +110,7 @@ class Program
     }
 
     /**
-     * @return Collection|Show[]
+     * @return Collection|Showlive[]
      */
     public function getShows(): Collection
     {

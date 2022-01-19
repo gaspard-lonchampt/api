@@ -150,7 +150,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->programs->contains($program)) {
             $this->programs[] = $program;
-            $program->addFav($this);
+            $program->addUsers($this);
         }
 
         return $this;
@@ -159,7 +159,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeProgram(Program $program): self
     {
         if ($this->programs->removeElement($program)) {
-            $program->removeFav($this);
+            $program->removeUsers($this);
         }
 
         return $this;
