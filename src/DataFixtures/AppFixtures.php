@@ -5,21 +5,17 @@ namespace App\DataFixtures;
 use App\Entity\Category;
 use App\Entity\Program;
 use App\Entity\Show;
-use App\Entity\Users;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-
 use Faker;
+
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
         // use the factory to create a Faker\Generator instance
         $faker = Faker\Factory::create('fr_FR');
-        echo $faker->name();
-        echo $faker->email();
-        echo $faker->text();
-
 
         // Création de 3 fausses catégories
         for($i = 1 ; $i < 4 ; $i++)
@@ -47,7 +43,7 @@ class AppFixtures extends Fixture
 
             // create 60 users! Bam!
             for ($l =1; $l <= mt_rand(4,10); $l++) {
-                $user = new Users();
+                $user = new User();
 
                 $user->setName($faker->name());
                 $user->setSurname($faker->name());
@@ -69,10 +65,10 @@ class AppFixtures extends Fixture
                 $show->setDescription($content);
                 $show->setHostedBy($faker->name());
                 $show->setGuest($faker->name());
-                $show->setDateStart($date);
-                $show->setDateEnd($date);
-                $show->setDateCreated($date);
-                $show->setProgramId($program);
+                $show->setStartAt($date);
+                $show->setEndAt($date);
+                $show->setCreatedAt($date);
+                $show->setProgram($program);
 
                 $manager->persist($show); 
 
