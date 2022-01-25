@@ -21,13 +21,13 @@ class ShowCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            AssociationField::new('program'),
             TextField::new('name'),
             TextEditorField::new('description'),
             DateTimeField::new('start_at'),
             DateTimeField::new('end_at'),
-            DateTimeField::new('created_at'),
+            DateTimeField::new('created_at')->hideOnForm(),
+            TextField::new('guest'),
+            AssociationField::new('program'),
         ];
     }
     

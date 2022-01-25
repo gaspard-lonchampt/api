@@ -21,7 +21,7 @@ class AppFixtures extends Fixture
         for($i = 1 ; $i < 4 ; $i++)
         {
             $category = new Category();
-            $category->setName('category '.$i);
+            $category->setName($faker->word());
             $category->setDescription($faker->text());
 
             $manager->persist($category); 
@@ -33,7 +33,7 @@ class AppFixtures extends Fixture
                 $program = new Program();
                 $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>';
                 
-                $program->setName('program '.$i);
+                $program->setName($faker->word());
                 $program->setDescription($content);
                 $program->setHostedBy($faker->name());
                 $program->addCategory($category);
@@ -61,7 +61,7 @@ class AppFixtures extends Fixture
                 
                 $date = new \DateTimeImmutable($faker->date('Y-m-d H:i:s'));
 
-                $show->setName('show '.$i);
+                $show->setName($faker->word());
                 $show->setDescription($content);
                 $show->setHostedBy($faker->name());
                 $show->setGuest($faker->name());
