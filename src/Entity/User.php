@@ -98,11 +98,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(string $password)
     {
-        $this->password = $password;
 
-        return $this;
+        $passhash = password_hash($this->password,PASSWORD_BCRYPT);
+        return $this->password = $passhash;
+
+      
     }
 
     /**
