@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#admin_login {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-image: url("../style/img/frog_background.png");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: right;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: slidein2;
+          animation-name: slidein2;
+}
+
+#admin_login > div {
+  height: 100%;
+}
+
+#admin_login #form_login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60%;
+  margin-bottom: 200px;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+}
+
+#admin_login #form_login h1 {
+  color: white;
+  padding: 30px 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: rgba(0, 128, 0, 0.582);
+  font-size: 35px;
+}
+
+#admin_login #form_login form {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+#admin_login #form_login form input, #admin_login #form_login form button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#admin_login #form_login form input {
+  border: 1px solid rgba(0, 128, 0, 0.582);
+}
+
+#admin_login #form_login form button {
+  border: none;
+  width: 60%;
+  margin: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+#admin_login #form_login form label {
+  display: none;
+}
+
+.error {
+  color: #ec4747;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px 0px;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slidein {
+  from {
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slidein2 {
+  from {
+    background-position: 100vw;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+@keyframes slidein2 {
+  from {
+    background-position: 100vw;
+  }
+  to {
+    background-position: right;
+  }
+}
+/*# sourceMappingURL=login.css.map */
