@@ -23,7 +23,7 @@ class Category
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
-    #[ORM\ManyToMany(targetEntity: Program::class, inversedBy: 'categories')]
+    #[ORM\ManyToMany(targetEntity: Program::class, inversedBy: 'category')]
     #[ORM\JoinTable(name:'`belongTo`')]
     private $program;
 
