@@ -1,0 +1,42 @@
+{# templates/login/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# ... #}
+{% block stylesheets %}
+
+    <link href="{{ asset('style/login.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body %}
+    
+    <section id="admin_login">
+
+        <div id="form_login">
+
+            <form action="{{ path('login') }}" method="post">
+                <h1> Accéder au panel d'administration </h1>
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Email"/>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
+
+                {# If you want to control the URL the user is redirected to on success
+                <input type="hidden" name="_target_path" value="/account"/> #}
+
+                <button type="submit">login</button>
+                {% if error %}
+                    <div class="error"> Erreur durant l'authentification.</div>
+                {% endif %}
+            </form>
+
+
+        </div>
+    
+    </section>
+
+{# message d'erreur de base {{ error.messageKey|trans(error.messageData, 'security') }} #}
+
+{% endblock %}

@@ -10,13 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter as FilterSearchFilter;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
-#[ApiResource(), 
-ApiFilter(FilterSearchFilter::class, properties: ['id' => 'exact', 'programs.id' => 'exact'])
-]
+#[ApiResource]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'programs.id' => 'exact'])]
+
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -25,18 +28,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
+    #[Assert\Email(
+        message: 'L\'email {{ value }} n\'est pas valide.',
+    )]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $surname;
 
     #[ORM\ManyToMany(targetEntity: Program::class, mappedBy: 'users')]
@@ -154,7 +172,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->programs->contains($program)) {
             $this->programs[] = $program;
-            $program->addFav($this);
+            $program->addUsers($this);
         }
 
         return $this;
@@ -163,9 +181,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeProgram(Program $program): self
     {
         if ($this->programs->removeElement($program)) {
-            $program->removeFav($this);
+            $program->removeUsers($this);
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name ; 
     }
 }
