@@ -17,6 +17,7 @@
         "lcobucci/jwt": "^4.1",
         "nelmio/cors-bundle": "^2.1",
         "phpdocumentor/reflection-docblock": "^5.2",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "6.0.*",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
@@ -92,6 +93,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile" : [
+            "php bin/console doctrine:migrations:migrate"
         ]
     },
     "conflict": {
