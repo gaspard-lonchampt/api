@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -21,18 +22,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
+    #[Assert\Email(
+        message: 'L\'email {{ value }} n\'est pas valide.',
+    )]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(
+        message: 'Veuillez remplir ce champ.'
+    )]
     private $surname;
 
     #[ORM\ManyToMany(targetEntity: Program::class, mappedBy: 'users')]

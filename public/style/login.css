@@ -19,10 +19,8 @@
   background-repeat: no-repeat;
   background-size: 75%;
   background-position: right;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-name: slidein2;
-          animation-name: slidein2;
+  -webkit-animation: slidein2 1s ease;
+          animation: slidein2 1s ease;
 }
 
 #admin_login > div {
@@ -42,10 +40,8 @@
           justify-content: center;
   width: 60%;
   margin-bottom: 200px;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-name: slidein;
-          animation-name: slidein;
+  -webkit-animation: slidein 1s ease;
+          animation: slidein 1s ease;
 }
 
 #admin_login #form_login h1 {

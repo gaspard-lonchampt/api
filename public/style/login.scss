@@ -15,8 +15,7 @@
     background-repeat: no-repeat;
     background-size: 75%;
     background-position : right;
-    animation-duration: 1s;
-    animation-name: slidein2;
+    animation: slidein2 1s ease;
     
 
     & > div {
@@ -30,8 +29,7 @@
         justify-content: center;
         width : 60%; 
         margin-bottom: 200px;
-        animation-duration: 1s;
-        animation-name: slidein;
+        animation: slidein 1s ease;
 
         & h1 {
            
