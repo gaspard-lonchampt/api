@@ -112,6 +112,25 @@ class Program
         return $this;
     }
 
+    public function addFav(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFav(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeProgram($this);
+        }
+
+        return $this;
+    }
+
     /**
      * @return Collection|Showlive[]
      */
