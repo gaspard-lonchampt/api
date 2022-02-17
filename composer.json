@@ -37,7 +37,8 @@
         "symfony/translation": "6.0.*",
         "symfony/twig-bundle": "6.0.*",
         "symfony/validator": "6.0.*",
-        "symfony/yaml": "6.0.*"
+        "symfony/yaml": "6.0.*",
+        "symfony/web-profiler-bundle": "6.0.*"
     },
     "require-dev": {
         "api-platform/schema-generator": "^4.0",
@@ -48,8 +49,7 @@
         "symfony/maker-bundle": "^1.36",
         "symfony/phpunit-bridge": "6.0.*",
         "symfony/stopwatch": "6.0.*",
-        "symfony/var-dumper": "6.0.*",
-        "symfony/web-profiler-bundle": "6.0.*"
+        "symfony/var-dumper": "6.0.*"
     },
     "config": {
         "optimize-autoloader": true,

@@ -36,8 +36,6 @@ class AppFixtures extends Fixture
             $manager->persist($category); 
 
 
-
-            $program = new Program();
             
             // create users! Bam!
             for ($l =1; $l <= mt_rand(4,10); $l++) {
@@ -48,7 +46,7 @@ class AppFixtures extends Fixture
                 $user->setPassword($faker->password());
                 $user->setName($faker->name());
                 $user->setSurname($faker->name());
-                $user->addProgram($program);
+                // $user->addProgram($program);
 
                 $manager->persist($user);
             }
