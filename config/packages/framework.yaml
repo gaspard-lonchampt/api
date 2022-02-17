@@ -6,7 +6,9 @@ framework:
         handler_id: ~
     http_method_override: false
     trusted_proxies: '%env(TRUSTED_PROXIES)%'
-    trusted_hosts: '%env(TRUSTED_HOSTS)%'
+    trusted_hosts: 
+    - '%env(TRUSTED_HOSTS)%'
+    - "intense-springs-77079.herokuapp.com"
     # See https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#headers
     trusted_headers: ['x-forwarded-for', 'x-forwarded-proto']
 
